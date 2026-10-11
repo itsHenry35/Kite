@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="discovery_title">投射到</string>
+    <string name="discovery_subtitle">同一 Wi-Fi 下的 AirPlay 接收端</string>
+    <string name="discovery_searching">正在搜索接收端</string>
+    <string name="discovery_empty_title">没找到设备</string>
+    <string name="discovery_empty_body">确认 Apple TV 已开机，并和本机在同一个 Wi-Fi 网络下。部分路由器的 AP 隔离会挡住 mDNS。</string>
+
+    <string name="receiver_paired">已配对</string>
+    <string name="receiver_no_mirroring">不支持镜像</string>
+    <string name="receiver_legacy_pairing">仅旧版配对</string>
+
+    <string name="action_start">开始投射</string>
+    <string name="action_stop">停止投射</string>
+    <string name="action_forget">取消配对</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_confirm">确认</string>
+    <string name="action_ok">确定</string>
+    <string name="action_retry">重试</string>
+    <string name="action_back">返回</string>
+
+    <string name="receiver_actions_title">要投放什么内容？</string>
+    <string name="receiver_action_mirror">画面和声音</string>
+    <string name="receiver_action_video_only">仅画面</string>
+    <string name="receiver_action_audio_only">仅声音</string>
+
+    <string name="pin_title">输入配对码</string>
+    <string name="pin_body">%1$s 的屏幕上会显示一个 4 位数字。</string>
+    <string name="pin_label">配对码</string>
+
+    <string name="quality_title">分辨率</string>
+    <string name="quality_native">原生</string>
+    <string name="quality_1080p">1080p</string>
+    <string name="quality_720p">720p</string>
+    <string name="quality_540p">540p</string>
+
+    <string name="state_connecting">正在连接</string>
+    <string name="state_pairing">正在配对</string>
+    <string name="state_setting_up">正在建立会话</string>
+    <string name="state_mirroring">正在投射</string>
+
+    <string name="mirroring_rate_kbps">%1$d kbps</string>
+    <string name="mirroring_rate_mbps">%1$.1f Mbps</string>
+    <string name="mirroring_resolution">%1$d × %2$d @ %3$d fps</string>
+
+    <string name="error_title">投射失败</string>
+    <string name="error_repair_needed">配对信息已失效，需要重新输入配对码。</string>
+
+    <string name="notification_channel_name">投射状态</string>
+    <string name="notification_channel_description">投射进行中的常驻通知</string>
+    <string name="notification_title">正在投射到 %1$s</string>
+    <string name="notification_text">点按返回 Kite</string>
+    <string name="notification_stop">停止</string>
+
+    <string name="permission_notification_rationale">需要通知权限来显示投射状态。</string>
+    <string name="permission_nearby_rationale">Android 13 及以上需要附近设备权限才能搜索局域网设备。</string>
+
+    <!-- 设置 -->
+    <string name="settings_title">设置</string>
+    <string name="settings_open">设置</string>
+
+    <string name="settings_section_video">视频</string>
+
+    <string name="settings_frame_rate">帧率</string>
+
+    <string name="settings_bit_rate">码率</string>
+    <string name="settings_bit_rate_auto">自动</string>
+    <string name="settings_bit_rate_manual">自定义</string>
+    <string name="settings_bit_rate_value">%1$d Mbps</string>
+
+    <string name="settings_section_system">系统</string>
+    <string name="settings_section_about">关于</string>
+    <string name="settings_battery">电池优化</string>
+    <string name="settings_battery_exempt">已忽略</string>
+    <string name="settings_battery_restricted">受限制</string>
+    <string name="settings_battery_summary">省电模式会让画面卡顿数秒</string>
+    <string name="settings_logs">日志</string>
+    <string name="settings_logs_summary">查看或分享最近的应用日志</string>
+    <string name="settings_saved_receivers">已保存的接收端</string>
+    <string name="saved_receivers_empty">暂无已保存的接收端</string>
+    <string name="saved_receivers_unknown">未知接收端</string>
+    <string name="saved_receivers_forget_title">取消与 %1$s 的配对？</string>
+    <string name="saved_receivers_forget_body">下次连接时需要重新配对。</string>
+    <string name="settings_about_version">版本</string>
+    <string name="settings_about_github">GitHub</string>
+    <string name="settings_licenses">开源许可</string>
+    <string name="licenses_note">Kite 以 GNU LGPL-3.0 发布，基于以下开源项目构建：</string>
+
+    <!-- AirPlay 1 (audio-only) and password protection -->
+    <string name="receiver_audio_only">仅音频</string>
+    <string name="state_password_required">需要密码</string>
+    <string name="state_streaming_audio">正在投放音频</string>
+    <string name="password_title">AirPlay 密码</string>
+    <string name="password_body">请输入 %1$s 的 AirPlay 密码。</string>
+    <string name="password_hint">密码</string>
+    <string name="tile_label">AirPlay</string>
+    <string name="tile_subtitle_idle">点按选择设备</string>
+    <string name="tile_pick_connecting">正在连接 %1$s</string>
+    <string name="error_projection_grant_invalid">屏幕录制授权无效，请重新授权</string>
+    <string name="error_audio_interrupted">音频投放中断</string>
+    <string name="error_audio_permission_needed">需要麦克风权限才能抓取系统声音</string>
+    <string name="error_cast_interrupted">投射中断</string>
+    <string name="error_receiver_disconnected">接收端已结束投屏</string>
+    <string name="error_password_required">密码被拒绝</string>
+    <string name="error_mdns_failed">mDNS 启动失败</string>
+    <string name="error_pairing_throttled">接收端因多次失败进入限流。请关闭再打开其 AirPlay 接收功能（或等约 30 分钟）后重试。</string>
+</resources>

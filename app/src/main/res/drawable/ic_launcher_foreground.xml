@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  A kite: rhombus body with a tail. Drawn inside the 72dp safe zone of the
+  108dp adaptive icon canvas so no part is clipped by any mask shape.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,26 L72,48 L54,70 L36,48 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.55"
+        android:pathData="M54,26 L72,48 L54,48 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.35"
+        android:pathData="M36,48 L54,48 L54,70 Z" />
+
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.5"
+        android:strokeAlpha="0.9"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M54,70 Q50,78 56,82 Q62,86 57,92" />
+</vector>

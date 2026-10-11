@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Numeric labels (1080p, kbps, fps) fall back to values/ untranslated. -->
+<resources>
+    <string name="discovery_title">Übertragen auf</string>
+    <string name="discovery_subtitle">AirPlay-Empfänger in diesem Wi-Fi-Netzwerk</string>
+    <string name="discovery_searching">Empfänger werden gesucht</string>
+    <string name="discovery_empty_title">Keine Geräte gefunden</string>
+    <string name="discovery_empty_body">Prüfe, ob das Apple TV eingeschaltet und mit demselben Wi-Fi-Netzwerk verbunden ist. Die AP-Isolierung mancher Router blockiert mDNS.</string>
+
+    <string name="receiver_paired">Gekoppelt</string>
+    <string name="receiver_no_mirroring">Spiegelung nicht unterstützt</string>
+    <string name="receiver_legacy_pairing">Nur alte Kopplung</string>
+
+    <string name="action_start">Übertragung starten</string>
+    <string name="action_stop">Übertragung beenden</string>
+    <string name="action_forget">Gerät entfernen</string>
+    <string name="action_cancel">Abbrechen</string>
+    <string name="action_confirm">Bestätigen</string>
+    <string name="action_ok">OK</string>
+    <string name="action_retry">Wiederholen</string>
+    <string name="action_back">Zurück</string>
+
+    <string name="receiver_actions_title">Was möchtest du übertragen?</string>
+    <string name="receiver_action_mirror">Bildschirm mit Ton</string>
+    <string name="receiver_action_video_only">Bildschirm ohne Ton</string>
+    <string name="receiver_action_audio_only">Nur Ton</string>
+
+    <string name="pin_title">Kopplungscode eingeben</string>
+    <string name="pin_body">Auf dem Bildschirm von %1$s erscheint ein vierstelliger Code.</string>
+    <string name="pin_label">Kopplungscode</string>
+
+    <string name="quality_title">Auflösung</string>
+    <string name="quality_native">Original</string>
+
+    <string name="state_connecting">Verbindung wird hergestellt</string>
+    <string name="state_pairing">Kopplung läuft</string>
+    <string name="state_setting_up">Sitzung wird eingerichtet</string>
+    <string name="state_mirroring">Übertragung läuft</string>
+
+    <string name="error_title">Übertragung fehlgeschlagen</string>
+    <string name="error_repair_needed">Die gespeicherte Kopplung ist nicht mehr gültig. Gib den Kopplungscode erneut ein.</string>
+
+    <string name="notification_channel_name">Übertragungsstatus</string>
+    <string name="notification_channel_description">Dauerhafte Benachrichtigung während der Übertragung</string>
+    <string name="notification_title">Übertragung auf %1$s</string>
+    <string name="notification_text">Tippen, um zu Kite zurückzukehren</string>
+    <string name="notification_stop">Beenden</string>
+
+    <string name="permission_notification_rationale">Für die Anzeige des Übertragungsstatus ist die Benachrichtigungsberechtigung erforderlich.</string>
+    <string name="permission_nearby_rationale">Ab Android 13 ist die Berechtigung für Geräte in der Nähe erforderlich, um Geräte im lokalen Netzwerk zu finden.</string>
+
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_open">Einstellungen</string>
+    <string name="settings_section_video">Video</string>
+    <string name="settings_frame_rate">Bildrate</string>
+    <string name="settings_bit_rate">Bitrate</string>
+    <string name="settings_bit_rate_auto">Automatisch</string>
+    <string name="settings_bit_rate_manual">Benutzerdefiniert</string>
+    <string name="settings_section_system">System</string>
+    <string name="settings_battery">Akkuoptimierung</string>
+    <string name="settings_battery_exempt">Ausgenommen</string>
+    <string name="settings_battery_restricted">Eingeschränkt</string>
+    <string name="settings_battery_summary">Doze kann die Übertragung für einige Sekunden anhalten</string>
+    <string name="settings_logs">Protokolle</string>
+    <string name="settings_logs_summary">Zuletzt aufgezeichnete App-Protokolle ansehen oder teilen</string>
+    <string name="settings_saved_receivers">Gespeicherte Empfänger</string>
+    <string name="saved_receivers_empty">Keine gespeicherten Empfänger</string>
+    <string name="saved_receivers_unknown">Unbekannter Empfänger</string>
+    <string name="saved_receivers_forget_title">%1$s entfernen?</string>
+    <string name="saved_receivers_forget_body">Beim nächsten Mal ist eine neue Kopplung nötig.</string>
+    <string name="settings_section_about">Über</string>
+    <string name="settings_about_version">Version</string>
+    <string name="settings_about_github">GitHub</string>
+    <string name="settings_licenses">Open-Source-Lizenzen</string>
+    <string name="licenses_note">Kite steht unter der GNU LGPL-3.0 und baut auf diesen Open-Source-Projekten auf:</string>
+
+    <!-- AirPlay 1 (audio-only) and password protection -->
+    <string name="receiver_audio_only">Nur Audio</string>
+    <string name="state_password_required">Passwort erforderlich</string>
+    <string name="state_streaming_audio">Audio wird gestreamt</string>
+    <string name="password_title">AirPlay-Passwort</string>
+    <string name="password_body">AirPlay-Passwort für %1$s eingeben.</string>
+    <string name="password_hint">Passwort</string>
+    <string name="tile_label">AirPlay</string>
+    <string name="tile_subtitle_idle">Zum Auswählen eines Geräts tippen</string>
+    <string name="tile_pick_connecting">Verbinde mit %1$s</string>
+    <string name="error_projection_grant_invalid">Die Bildschirmaufnahme-Berechtigung ist ungültig; bitte erneut erteilen</string>
+    <string name="error_audio_interrupted">Die Audio-Übertragung wurde unterbrochen</string>
+    <string name="error_audio_permission_needed">Für die Aufnahme des Systemtons wird die Mikrofonberechtigung benötigt</string>
+    <string name="error_cast_interrupted">Die Übertragung wurde unterbrochen</string>
+    <string name="error_receiver_disconnected">Die Gegenseite hat die Sitzung beendet</string>
+    <string name="error_password_required">Passwort wurde abgelehnt</string>
+    <string name="error_mdns_failed">mDNS-Ermittlung konnte nicht gestartet werden</string>
+    <string name="error_pairing_throttled">Der Empfänger drosselt Kopplungsversuche nach Fehlern. Schalte den AirPlay-Empfang aus und wieder ein (oder warte ca. 30 Minuten) und versuche es erneut.</string>
+</resources>

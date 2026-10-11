@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Declaring the supported locales is what puts Kite in Android Settings ->
+  System -> Languages -> App languages on API 33+. The first entry is the
+  default that ships in res/values.
+-->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="en" />
+    <locale android:name="zh-CN" />
+    <locale android:name="zh-TW" />
+    <locale android:name="ja" />
+    <locale android:name="ko" />
+    <locale android:name="de" />
+    <locale android:name="fr" />
+    <locale android:name="es" />
+    <locale android:name="pt-BR" />
+    <locale android:name="ru" />
+    <locale android:name="it" />
+</locale-config>

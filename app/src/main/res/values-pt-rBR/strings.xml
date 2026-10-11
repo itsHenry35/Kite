@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Numeric labels (1080p, kbps, fps) fall back to values/ untranslated. -->
+<resources>
+    <string name="discovery_title">Transmitir para</string>
+    <string name="discovery_subtitle">Receptores AirPlay nesta rede Wi-Fi</string>
+    <string name="discovery_searching">Procurando receptores</string>
+    <string name="discovery_empty_title">Nenhum dispositivo encontrado</string>
+    <string name="discovery_empty_body">Verifique se a Apple TV está ligada e conectada à mesma rede Wi-Fi. O isolamento de AP de alguns roteadores bloqueia o mDNS.</string>
+
+    <string name="receiver_paired">Pareado</string>
+    <string name="receiver_no_mirroring">Espelhamento não compatível</string>
+    <string name="receiver_legacy_pairing">Apenas pareamento antigo</string>
+
+    <string name="action_start">Iniciar transmissão</string>
+    <string name="action_stop">Parar transmissão</string>
+    <string name="action_forget">Esquecer dispositivo</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_confirm">Confirmar</string>
+    <string name="action_ok">OK</string>
+    <string name="action_retry">Tentar novamente</string>
+    <string name="action_back">Voltar</string>
+
+    <string name="receiver_actions_title">O que você quer transmitir?</string>
+    <string name="receiver_action_mirror">Tela com som</string>
+    <string name="receiver_action_video_only">Tela sem som</string>
+    <string name="receiver_action_audio_only">Somente som</string>
+
+    <string name="pin_title">Digite o código de pareamento</string>
+    <string name="pin_body">Um código de quatro dígitos aparece na tela de %1$s.</string>
+    <string name="pin_label">Código de pareamento</string>
+
+    <string name="quality_title">Resolução</string>
+    <string name="quality_native">Nativa</string>
+
+    <string name="state_connecting">Conectando</string>
+    <string name="state_pairing">Pareando</string>
+    <string name="state_setting_up">Preparando a sessão</string>
+    <string name="state_mirroring">Transmitindo</string>
+
+    <string name="error_title">Falha na transmissão</string>
+    <string name="error_repair_needed">O pareamento salvo não é mais válido. Digite o código de pareamento novamente.</string>
+
+    <string name="notification_channel_name">Status da transmissão</string>
+    <string name="notification_channel_description">Notificação permanente durante a transmissão</string>
+    <string name="notification_title">Transmitindo para %1$s</string>
+    <string name="notification_text">Toque para voltar ao Kite</string>
+    <string name="notification_stop">Parar</string>
+
+    <string name="permission_notification_rationale">A permissão de notificações é necessária para mostrar o status da transmissão.</string>
+    <string name="permission_nearby_rationale">O Android 13 e versões posteriores exigem a permissão de dispositivos por perto para encontrar dispositivos na rede local.</string>
+
+    <string name="settings_title">Configurações</string>
+    <string name="settings_open">Configurações</string>
+    <string name="settings_section_video">Vídeo</string>
+    <string name="settings_frame_rate">Taxa de quadros</string>
+    <string name="settings_bit_rate">Taxa de bits</string>
+    <string name="settings_bit_rate_auto">Automática</string>
+    <string name="settings_bit_rate_manual">Personalizada</string>
+    <string name="settings_section_system">Sistema</string>
+    <string name="settings_battery">Otimização de bateria</string>
+    <string name="settings_battery_exempt">Isento</string>
+    <string name="settings_battery_restricted">Restrito</string>
+    <string name="settings_battery_summary">O modo Doze pode interromper a transmissão por alguns segundos</string>
+    <string name="settings_logs">Registros</string>
+    <string name="settings_logs_summary">Ver ou compartilhar os registros recentes do app</string>
+    <string name="settings_saved_receivers">Receptores salvos</string>
+    <string name="saved_receivers_empty">Nenhum receptor salvo</string>
+    <string name="saved_receivers_unknown">Receptor desconhecido</string>
+    <string name="saved_receivers_forget_title">Esquecer %1$s?</string>
+    <string name="saved_receivers_forget_body">Você precisará parear novamente na próxima vez.</string>
+    <string name="settings_section_about">Sobre</string>
+    <string name="settings_about_version">Versão</string>
+    <string name="settings_about_github">GitHub</string>
+    <string name="settings_licenses">Licenças de código aberto</string>
+    <string name="licenses_note">O Kite é distribuído sob a GNU LGPL-3.0 e é construído sobre estes projetos de código aberto:</string>
+
+    <!-- AirPlay 1 (audio-only) and password protection -->
+    <string name="receiver_audio_only">Somente áudio</string>
+    <string name="state_password_required">Senha necessária</string>
+    <string name="state_streaming_audio">Transmitindo áudio</string>
+    <string name="password_title">Senha do AirPlay</string>
+    <string name="password_body">Digite a senha do AirPlay de %1$s.</string>
+    <string name="password_hint">Senha</string>
+    <string name="tile_label">AirPlay</string>
+    <string name="tile_subtitle_idle">Toque para escolher um dispositivo</string>
+    <string name="tile_pick_connecting">Conectando a %1$s</string>
+    <string name="error_projection_grant_invalid">A permissão de gravação de tela é inválida; conceda-a novamente</string>
+    <string name="error_audio_interrupted">A transmissão de áudio foi interrompida</string>
+    <string name="error_audio_permission_needed">É necessário o permisso do microfone para capturar o som do sistema</string>
+    <string name="error_cast_interrupted">A transmissão foi interrompida</string>
+    <string name="error_receiver_disconnected">O receptor encerrou a sessão</string>
+    <string name="error_password_required">A senha foi rejeitada</string>
+    <string name="error_mdns_failed">Falha ao iniciar a descoberta mDNS</string>
+    <string name="error_pairing_throttled">O receptor está limitando as tentativas de pareamento após falhas. Desligue e ligue o receptor AirPlay dele (ou aguarde cerca de 30 minutos) e tente novamente.</string>
+</resources>

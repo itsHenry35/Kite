@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- Multicast is how mDNS discovery works; without it JmDNS sees nothing. -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+
+    <!-- Android 13+ gates local network discovery behind this instead of location. -->
+    <uses-permission
+        android:name="android.permission.NEARBY_WIFI_DEVICES"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="33" />
+
+    <!--
+      BLE beacon discovery (uxplay-style): receivers may advertise their
+      address:port as an Apple AirPlay data unit (company 0x004C, type 0x09)
+      when the network blocks mDNS. Scanning is paired-device only — no
+      location inference — and pre-31 builds need the location permission for
+      scan results.
+    -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="31" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:maxSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!--
+      AudioPlaybackCapture is authorised by the MediaProjection grant, but it is
+      still an AudioRecord underneath, so the runtime permission is required or
+      AudioRecord.build() throws.
+    -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!--
+      Doze defers work and parks the Wi-Fi radio, which shows up as multi-second
+      stalls in a mirroring session. The wake lock covers the screen-off case;
+      this covers the system deciding to throttle the app anyway.
+    -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <application
+        android:name=".KiteApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Kite"
+        android:localeConfig="@xml/locales_config"
+        tools:targetApi="34">
+
+        <!--
+          Dialog-style receiver picker opened from the Quick Settings tile:
+          translucent so the app the user came from stays visible underneath.
+          The empty taskAffinity keeps it in a task of its own — launched with
+          NEW_TASK it would otherwise join Kite's task and drag the app to the
+          foreground behind the translucent dialog.
+        -->
+        <activity
+            android:name=".TilePickerActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:taskAffinity=""
+            android:theme="@style/Theme.Kite.TilePicker" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Kite">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.Kite" />
+
+        <activity
+            android:name=".SavedReceiversActivity"
+            android:exported="false"
+            android:parentActivityName=".SettingsActivity"
+            android:theme="@style/Theme.Kite" />
+
+        <!--
+          Capture only runs while this service is in the foreground. On API 34+ the
+          service has to be started and promoted before MediaProjection is used, or
+          the system throws.
+        -->
+        <service
+            android:name=".service.MirrorService"
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection|microphone" />
+
+        <!-- Quick Settings tile: "Screen cast" in the notification shade. -->
+        <service
+            android:name=".service.KiteTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_tile_cast"
+            android:label="@string/tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <!-- Read-only sharing of the diagnostic log bundle (Settings → Logs). -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+</manifest>

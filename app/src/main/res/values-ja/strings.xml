@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Numeric labels (1080p, kbps, fps) fall back to values/ untranslated. -->
+<resources>
+    <string name="discovery_title">キャスト先</string>
+    <string name="discovery_subtitle">同じ Wi-Fi 上の AirPlay レシーバー</string>
+    <string name="discovery_searching">レシーバーを検索中</string>
+    <string name="discovery_empty_title">デバイスが見つかりません</string>
+    <string name="discovery_empty_body">Apple TV の電源が入っていて、同じ Wi-Fi ネットワークに接続されていることを確認してください。一部のルーターの AP 分離機能は mDNS をブロックします。</string>
+
+    <string name="receiver_paired">ペア設定済み</string>
+    <string name="receiver_no_mirroring">ミラーリング非対応</string>
+    <string name="receiver_legacy_pairing">旧方式のペア設定のみ</string>
+
+    <string name="action_start">キャストを開始</string>
+    <string name="action_stop">キャストを停止</string>
+    <string name="action_forget">ペア設定を解除</string>
+    <string name="action_cancel">キャンセル</string>
+    <string name="action_confirm">確認</string>
+    <string name="action_ok">OK</string>
+    <string name="action_retry">再試行</string>
+    <string name="action_back">戻る</string>
+
+    <string name="receiver_actions_title">何をキャストしますか？</string>
+    <string name="receiver_action_mirror">画面と音声</string>
+    <string name="receiver_action_video_only">画面のみ（音声なし）</string>
+    <string name="receiver_action_audio_only">音声のみ</string>
+
+    <string name="pin_title">ペア設定コードを入力</string>
+    <string name="pin_body">%1$s の画面に 4 桁のコードが表示されます。</string>
+    <string name="pin_label">ペア設定コード</string>
+
+    <string name="quality_title">解像度</string>
+    <string name="quality_native">ネイティブ</string>
+
+    <string name="state_connecting">接続中</string>
+    <string name="state_pairing">ペア設定中</string>
+    <string name="state_setting_up">セッションを準備中</string>
+    <string name="state_mirroring">キャスト中</string>
+
+    <string name="error_title">キャストに失敗しました</string>
+    <string name="error_repair_needed">保存されたペア設定が無効になりました。ペア設定コードを再入力してください。</string>
+
+    <string name="notification_channel_name">キャストの状態</string>
+    <string name="notification_channel_description">キャスト中に表示される常設通知</string>
+    <string name="notification_title">%1$s にキャスト中</string>
+    <string name="notification_text">タップして Kite に戻る</string>
+    <string name="notification_stop">停止</string>
+
+    <string name="permission_notification_rationale">キャストの状態を表示するには通知の権限が必要です。</string>
+    <string name="permission_nearby_rationale">Android 13 以降では、ローカルネットワーク上のデバイスを検索するために付近のデバイスの権限が必要です。</string>
+
+    <string name="settings_title">設定</string>
+    <string name="settings_open">設定</string>
+    <string name="settings_section_video">ビデオ</string>
+    <string name="settings_frame_rate">フレームレート</string>
+    <string name="settings_bit_rate">ビットレート</string>
+    <string name="settings_bit_rate_auto">自動</string>
+    <string name="settings_bit_rate_manual">カスタム</string>
+    <string name="settings_section_system">システム</string>
+    <string name="settings_battery">電池の最適化</string>
+    <string name="settings_battery_exempt">対象外</string>
+    <string name="settings_battery_restricted">制限あり</string>
+    <string name="settings_battery_summary">Doze により数秒間映像が止まることがあります</string>
+    <string name="settings_logs">ログ</string>
+    <string name="settings_logs_summary">最近のアプリログを表示・共有します</string>
+    <string name="settings_saved_receivers">保存済みのレシーバー</string>
+    <string name="saved_receivers_empty">保存済みのレシーバーはありません</string>
+    <string name="saved_receivers_unknown">不明なレシーバー</string>
+    <string name="saved_receivers_forget_title">%1$s を削除しますか？</string>
+    <string name="saved_receivers_forget_body">次回接続時に再ペア設定が必要になります。</string>
+    <string name="settings_section_about">アプリ情報</string>
+    <string name="settings_about_version">バージョン</string>
+    <string name="settings_about_github">GitHub</string>
+    <string name="settings_licenses">オープンソースライセンス</string>
+    <string name="licenses_note">Kite は GNU LGPL-3.0 で公開されており、以下のオープンソースプロジェクトに基づいています：</string>
+
+    <!-- AirPlay 1 (audio-only) and password protection -->
+    <string name="receiver_audio_only">オーディオのみ</string>
+    <string name="state_password_required">パスワードが必要です</string>
+    <string name="state_streaming_audio">オーディオをキャスト中</string>
+    <string name="password_title">AirPlay パスワード</string>
+    <string name="password_body">%1$s の AirPlay パスワードを入力してください。</string>
+    <string name="password_hint">パスワード</string>
+    <string name="tile_label">AirPlay</string>
+    <string name="tile_subtitle_idle">タップしてデバイスを選択</string>
+    <string name="tile_pick_connecting">%1$s に接続中</string>
+    <string name="error_projection_grant_invalid">画面収録の権限が無効です。再度許可してください</string>
+    <string name="error_audio_interrupted">オーディオキャストが中断されました</string>
+    <string name="error_audio_permission_needed">システム音声を取得するにはマイクの権限が必要です</string>
+    <string name="error_cast_interrupted">キャストが中断されました</string>
+    <string name="error_receiver_disconnected">受信側がセッションを終了しました</string>
+    <string name="error_password_required">パスワードが拒否されました</string>
+    <string name="error_mdns_failed">mDNS の起動に失敗しました</string>
+    <string name="error_pairing_throttled">失敗が続いたため、受信側がペアリングを制限しています。受信側のAirPlayレシーバーをオフ/オンするか、約30分待ってから再試行してください。</string>
+</resources>

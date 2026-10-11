@@ -1,0 +1,228 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pr-checks:
+    name: Code quality, tests and debug build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Compute short SHA
+        id: vars
+        run: echo "sha7=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Run detekt
+        if: success()
+        run: |
+          set -o pipefail
+          echo "Running detekt..."
+          if bash gradlew detekt --auto-correct 2>&1 | tee detekt.log; then
+            echo "detekt passed"
+            rm -f detekt.log
+          else
+            echo "detekt failed"
+            exit 1
+          fi
+
+      - name: Run Android Lint
+        if: success() || failure()
+        run: |
+          set -o pipefail
+          echo "Running Android Lint..."
+          if bash gradlew lintDebug 2>&1 | tee android-lint.log; then
+            echo "Android Lint passed"
+            rm -f android-lint.log
+          else
+            echo "Android Lint failed"
+            exit 1
+          fi
+
+      - name: Run unit tests
+        if: success() || failure()
+        run: |
+          set -o pipefail
+          echo "Running unit tests..."
+          if bash gradlew test 2>&1 | tee unit-tests.log; then
+            echo "Unit tests passed"
+            rm -f unit-tests.log
+          else
+            echo "Unit tests failed"
+            exit 1
+          fi
+
+      - name: Build debug APK
+        if: success() || failure()
+        env:
+          KITE_VERSION_SUFFIX: pr.${{ github.event.pull_request.number }}-${{ steps.vars.outputs.sha7 }}
+        run: |
+          set -o pipefail
+          echo "Building debug APK (debug signing)..."
+          if bash gradlew :app:assembleDebug 2>&1 | tee build-debug.log; then
+            echo "Debug build successful"
+            rm -f build-debug.log
+          else
+            echo "Debug build failed"
+            exit 1
+          fi
+
+      - name: Rename debug APK
+        if: success()
+        run: |
+          cp app/build/outputs/apk/debug/app-debug.apk \
+            "Kite-debug.pr${{ github.event.pull_request.number }}.${{ steps.vars.outputs.sha7 }}.apk"
+          ls -la Kite-debug.*.apk
+
+      - name: Upload debug APK
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kite-debug-pr${{ github.event.pull_request.number }}-run${{ github.run_number }}-${{ steps.vars.outputs.sha7 }}
+          path: Kite-debug.*.apk
+          retention-days: 7
+
+      - name: Check PR title format
+        if: success() || failure()
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          echo "Checking PR title: $PR_TITLE"
+
+          # Conventional Commits
+          if ! echo "$PR_TITLE" | grep -qE '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(\([[:alnum:]._-]+\))?(!)?: ([[:alnum:]])+([[:space:][:print:]]*)'; then
+            echo "PR title does not follow Conventional Commits format"
+            echo "invalid" > pr-title-check.txt
+            exit 1
+          fi
+
+          echo "PR title format is valid"
+
+      - name: Check for uncommitted changes
+        if: success()
+        run: |
+          # detekt --auto-correct must not leave changes behind; if it did, the
+          # contributor has to commit the fixes.
+          CODE_CHANGES=$(git status --porcelain | grep -v "^??" | grep -v "\.log$" || true)
+
+          if [[ -n "$CODE_CHANGES" ]]; then
+            echo "Detected formatting changes that are not committed:"
+            git status --porcelain
+            echo ""
+            echo "Detailed diff:"
+            git diff
+            echo "$CODE_CHANGES" > code-changes.txt
+            exit 1
+          fi
+
+          echo "No uncommitted changes detected"
+
+      - name: Generate failure comment
+        if: failure()
+        run: |
+          COMMENT="## ❌ PR checks failed"$'\n\n'
+
+          if [[ -f "pr-title-check.txt" ]]; then
+            COMMENT+="### PR title format"$'\n\n'
+            COMMENT+="The title does not follow Conventional Commits."$'\n\n'
+            COMMENT+="**Current title:** \`${{ github.event.pull_request.title }}\`"$'\n\n'
+          fi
+
+          if [[ -f "detekt.log" ]]; then
+            COMMENT+="### detekt failed"$'\n\n'
+            COMMENT+="<details>"$'\n'
+            COMMENT+="<summary>Show detekt output</summary>"$'\n\n'
+            COMMENT+='```'$'\n'
+            COMMENT+="$(cat detekt.log)"$'\n'
+            COMMENT+='```'$'\n'
+            COMMENT+="</details>"$'\n\n'
+            COMMENT+="Fix it manually, or run the auto-formatter locally:"$'\n'
+            COMMENT+='```bash'$'\n'
+            COMMENT+="./gradlew detekt --auto-correct"$'\n'
+            COMMENT+='```'$'\n\n'
+          fi
+
+          if [[ -f "android-lint.log" ]]; then
+            COMMENT+="### Android Lint failed"$'\n\n'
+            COMMENT+="<details>"$'\n'
+            COMMENT+="<summary>Show lint output</summary>"$'\n\n'
+            COMMENT+='```'$'\n'
+            COMMENT+="$(cat android-lint.log)"$'\n'
+            COMMENT+='```'$'\n'
+            COMMENT+="</details>"$'\n\n'
+            COMMENT+="Run \`./gradlew lintDebug\` locally and fix the reported errors."$'\n\n'
+          fi
+
+          if [[ -f "unit-tests.log" ]]; then
+            COMMENT+="### Unit tests failed"$'\n\n'
+            COMMENT+="<details>"$'\n'
+            COMMENT+="<summary>Show test output</summary>"$'\n\n'
+            COMMENT+='```'$'\n'
+            COMMENT+="$(cat unit-tests.log)"$'\n'
+            COMMENT+='```'$'\n'
+            COMMENT+="</details>"$'\n\n'
+          fi
+
+          if [[ -f "build-debug.log" ]]; then
+            COMMENT+="### Debug build failed"$'\n\n'
+            COMMENT+="<details>"$'\n'
+            COMMENT+="<summary>Show build output</summary>"$'\n\n'
+            COMMENT+='```'$'\n'
+            COMMENT+="$(cat build-debug.log)"$'\n'
+            COMMENT+='```'$'\n'
+            COMMENT+="</details>"$'\n\n'
+          fi
+
+          if [[ -f "code-changes.txt" ]]; then
+            COMMENT+="### Uncommitted formatting changes"$'\n\n'
+            COMMENT+="detekt --auto-correct changed files that were not committed. Run it locally and commit the result:"$'\n'
+            COMMENT+='```bash'$'\n'
+            COMMENT+="./gradlew detekt --auto-correct"$'\n'
+            COMMENT+='```'$'\n\n'
+            COMMENT+="Changed files:"$'\n'
+            COMMENT+='```'$'\n'
+            COMMENT+="$(cat code-changes.txt)"$'\n'
+            COMMENT+='```'$'\n\n'
+          fi
+
+          COMMENT+="---"$'\n\n'
+          COMMENT+="Fix the issues above and push again. See [CONTRIBUTING.md](https://github.com/${{ github.repository }}/blob/main/CONTRIBUTING.md) for the development guide."
+
+          echo "$COMMENT" > comment.txt
+
+      - name: Post PR comment on failure
+        if: failure()
+        uses: mshick/add-pr-comment@v3
+        with:
+          message-id: pr-check
+          message-path: comment.txt
+
+      - name: Post PR comment on success
+        if: success()
+        uses: mshick/add-pr-comment@v3
+        with:
+          message-id: pr-check
+          message: |
+            ## ✅ PR checks passed
+
+            All checks passed — thanks for contributing! 🎉

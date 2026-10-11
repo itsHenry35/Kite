@@ -1,0 +1,68 @@
+name: Canary
+
+# Every push to main produces a canary build: debuggable, not minified, signed
+# with the release keystore, with a "1.0.0-canary.<run>-<sha>" versionName so
+# installed builds are identifiable. Real releases come from tag pushes
+# (release.yml). The APK is uploaded as a workflow artifact.
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  canary:
+    name: Build signed canary
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Compute short SHA
+        id: vars
+        run: echo "sha7=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Static analysis
+        run: bash gradlew detekt
+
+      - name: Unit tests
+        run: bash gradlew test
+
+      - name: Decode release keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
+        run: echo "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/release.jks"
+
+      - name: Build signed canary APK
+        env:
+          KITE_KEYSTORE_PATH: ${{ runner.temp }}/release.jks
+          KITE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+          KITE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          KITE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+          KITE_VERSION_SUFFIX: canary.${{ github.run_number }}-${{ steps.vars.outputs.sha7 }}
+        run: bash gradlew :app:assembleCanary
+
+      - name: Rename canary APK
+        run: |
+          cp app/build/outputs/apk/canary/app-canary.apk \
+            "Kite-canary.${{ github.run_number }}-${{ steps.vars.outputs.sha7 }}.apk"
+          ls -la Kite-canary.*.apk
+
+      - name: Upload canary APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: kite-canary-run${{ github.run_number }}-${{ steps.vars.outputs.sha7 }}
+          path: Kite-canary.*.apk
+          retention-days: 30

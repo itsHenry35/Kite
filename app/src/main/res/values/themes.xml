@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Compose owns all theming; this only covers the window before it composes.
+      The parent is an AppCompat theme because SettingsActivity extends
+      AppCompatActivity to get per-app locale support.
+    -->
+    <style name="Theme.Kite" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">?android:attr/colorBackground</item>
+    </style>
+
+    <!--
+      The Quick Settings tile picker: a floating card over whatever app the
+      user came from. Compose draws its own dimmed backdrop, so the window
+      itself is fully transparent and non-floating.
+    -->
+    <style name="Theme.Kite.TilePicker">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+</resources>

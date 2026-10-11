@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Numeric labels (1080p, kbps, fps) fall back to values/ untranslated. -->
+<resources>
+    <string name="discovery_title">Diffuser vers</string>
+    <string name="discovery_subtitle">Récepteurs AirPlay sur ce réseau Wi-Fi</string>
+    <string name="discovery_searching">Recherche de récepteurs</string>
+    <string name="discovery_empty_title">Aucun appareil trouvé</string>
+    <string name="discovery_empty_body">Vérifiez que l\'Apple TV est allumée et connectée au même réseau Wi-Fi. L\'isolation AP de certains routeurs bloque le mDNS.</string>
+
+    <string name="receiver_paired">Associé</string>
+    <string name="receiver_no_mirroring">Recopie non prise en charge</string>
+    <string name="receiver_legacy_pairing">Association ancienne uniquement</string>
+
+    <string name="action_start">Démarrer la diffusion</string>
+    <string name="action_stop">Arrêter la diffusion</string>
+    <string name="action_forget">Oublier l\'appareil</string>
+    <string name="action_cancel">Annuler</string>
+    <string name="action_confirm">Confirmer</string>
+    <string name="action_ok">OK</string>
+    <string name="action_retry">Réessayer</string>
+    <string name="action_back">Retour</string>
+
+    <string name="receiver_actions_title">Que souhaitez-vous projeter ?</string>
+    <string name="receiver_action_mirror">Écran avec le son</string>
+    <string name="receiver_action_video_only">Écran sans le son</string>
+    <string name="receiver_action_audio_only">Son uniquement</string>
+
+    <string name="pin_title">Saisir le code d\'association</string>
+    <string name="pin_body">Un code à quatre chiffres s\'affiche sur l\'écran de %1$s.</string>
+    <string name="pin_label">Code d\'association</string>
+
+    <string name="quality_title">Résolution</string>
+    <string name="quality_native">Native</string>
+
+    <string name="state_connecting">Connexion</string>
+    <string name="state_pairing">Association</string>
+    <string name="state_setting_up">Préparation de la session</string>
+    <string name="state_mirroring">Diffusion</string>
+
+    <string name="error_title">Échec de la diffusion</string>
+    <string name="error_repair_needed">L\'association enregistrée n\'est plus valide. Saisissez à nouveau le code d\'association.</string>
+
+    <string name="notification_channel_name">État de la diffusion</string>
+    <string name="notification_channel_description">Notification persistante pendant la diffusion</string>
+    <string name="notification_title">Diffusion vers %1$s</string>
+    <string name="notification_text">Appuyez pour revenir à Kite</string>
+    <string name="notification_stop">Arrêter</string>
+
+    <string name="permission_notification_rationale">L\'autorisation de notification est nécessaire pour afficher l\'état de la diffusion.</string>
+    <string name="permission_nearby_rationale">À partir d\'Android 13, l\'autorisation Appareils à proximité est nécessaire pour trouver les appareils du réseau local.</string>
+
+    <string name="settings_title">Réglages</string>
+    <string name="settings_open">Réglages</string>
+    <string name="settings_section_video">Vidéo</string>
+    <string name="settings_frame_rate">Fréquence d\'images</string>
+    <string name="settings_bit_rate">Débit</string>
+    <string name="settings_bit_rate_auto">Automatique</string>
+    <string name="settings_bit_rate_manual">Personnalisé</string>
+    <string name="settings_section_system">Système</string>
+    <string name="settings_battery">Optimisation de la batterie</string>
+    <string name="settings_battery_exempt">Exemptée</string>
+    <string name="settings_battery_restricted">Restreinte</string>
+    <string name="settings_battery_summary">Le mode Doze peut interrompre le flux pendant plusieurs secondes</string>
+    <string name="settings_logs">Journaux</string>
+    <string name="settings_logs_summary">Consulter ou partager les journaux récents de l’app</string>
+    <string name="settings_saved_receivers">Récepteurs enregistrés</string>
+    <string name="saved_receivers_empty">Aucun récepteur enregistré</string>
+    <string name="saved_receivers_unknown">Récepteur inconnu</string>
+    <string name="saved_receivers_forget_title">Oublier %1$s ?</string>
+    <string name="saved_receivers_forget_body">Une nouvelle association sera nécessaire la prochaine fois.</string>
+    <string name="settings_section_about">À propos</string>
+    <string name="settings_about_version">Version</string>
+    <string name="settings_about_github">GitHub</string>
+    <string name="settings_licenses">Licences open source</string>
+    <string name="licenses_note">Kite est publié sous GNU LGPL-3.0 et s’appuie sur ces projets open source :</string>
+
+    <!-- AirPlay 1 (audio-only) and password protection -->
+    <string name="receiver_audio_only">Audio uniquement</string>
+    <string name="state_password_required">Mot de passe requis</string>
+    <string name="state_streaming_audio">Diffusion audio en cours</string>
+    <string name="password_title">Mot de passe AirPlay</string>
+    <string name="password_body">Saisissez le mot de passe AirPlay de %1$s.</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="tile_label">AirPlay</string>
+    <string name="tile_subtitle_idle">Touchez pour choisir un appareil</string>
+    <string name="tile_pick_connecting">Connexion à %1$s</string>
+    <string name="error_projection_grant_invalid">L’autorisation d’enregistrement d’écran n’est plus valide ; veuillez la réaccorder</string>
+    <string name="error_audio_interrupted">La diffusion audio a été interrompue</string>
+    <string name="error_audio_permission_needed">L’autorisation micro est requise pour capturer le son du système</string>
+    <string name="error_cast_interrupted">La diffusion a été interrompue</string>
+    <string name="error_receiver_disconnected">Le récepteur a mis fin à la session</string>
+    <string name="error_password_required">Le mot de passe a été refusé</string>
+    <string name="error_mdns_failed">Échec du démarrage de la découverte mDNS</string>
+    <string name="error_pairing_throttled">Le récepteur limite les tentatives de jumelage après des échecs. Désactivez puis réactivez son récepteur AirPlay (ou attendez environ 30 minutes), puis réessayez.</string>
+</resources>

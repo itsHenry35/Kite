@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Numeric labels (1080p, kbps, fps) fall back to values/ untranslated. -->
+<resources>
+    <string name="discovery_title">Транслировать на</string>
+    <string name="discovery_subtitle">Приёмники AirPlay в этой сети Wi-Fi</string>
+    <string name="discovery_searching">Поиск приёмников</string>
+    <string name="discovery_empty_title">Устройства не найдены</string>
+    <string name="discovery_empty_body">Убедитесь, что Apple TV включён и подключён к той же сети Wi-Fi. Изоляция клиентов на некоторых роутерах блокирует mDNS.</string>
+
+    <string name="receiver_paired">Сопряжено</string>
+    <string name="receiver_no_mirroring">Повтор экрана не поддерживается</string>
+    <string name="receiver_legacy_pairing">Только устаревшее сопряжение</string>
+
+    <string name="action_start">Начать трансляцию</string>
+    <string name="action_stop">Остановить трансляцию</string>
+    <string name="action_forget">Забыть устройство</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_confirm">Подтвердить</string>
+    <string name="action_ok">ОК</string>
+    <string name="action_retry">Повторить</string>
+    <string name="action_back">Назад</string>
+
+    <string name="receiver_actions_title">Что транслировать?</string>
+    <string name="receiver_action_mirror">Экран со звуком</string>
+    <string name="receiver_action_video_only">Экран без звука</string>
+    <string name="receiver_action_audio_only">Только звук</string>
+
+    <string name="pin_title">Введите код сопряжения</string>
+    <string name="pin_body">На экране %1$s появится четырёхзначный код.</string>
+    <string name="pin_label">Код сопряжения</string>
+
+    <string name="quality_title">Разрешение</string>
+    <string name="quality_native">Исходное</string>
+
+    <string name="state_connecting">Подключение</string>
+    <string name="state_pairing">Сопряжение</string>
+    <string name="state_setting_up">Настройка сеанса</string>
+    <string name="state_mirroring">Трансляция</string>
+
+    <string name="error_title">Не удалось начать трансляцию</string>
+    <string name="error_repair_needed">Сохранённое сопряжение больше недействительно. Введите код сопряжения заново.</string>
+
+    <string name="notification_channel_name">Состояние трансляции</string>
+    <string name="notification_channel_description">Постоянное уведомление во время трансляции</string>
+    <string name="notification_title">Трансляция на %1$s</string>
+    <string name="notification_text">Нажмите, чтобы вернуться в Kite</string>
+    <string name="notification_stop">Остановить</string>
+
+    <string name="permission_notification_rationale">Для показа состояния трансляции нужно разрешение на уведомления.</string>
+    <string name="permission_nearby_rationale">В Android 13 и новее для поиска устройств в локальной сети требуется разрешение на устройства поблизости.</string>
+
+    <string name="settings_title">Настройки</string>
+    <string name="settings_open">Настройки</string>
+    <string name="settings_section_video">Видео</string>
+    <string name="settings_frame_rate">Частота кадров</string>
+    <string name="settings_bit_rate">Битрейт</string>
+    <string name="settings_bit_rate_auto">Автоматически</string>
+    <string name="settings_bit_rate_manual">Своё значение</string>
+    <string name="settings_section_system">Система</string>
+    <string name="settings_battery">Оптимизация батареи</string>
+    <string name="settings_battery_exempt">Без ограничений</string>
+    <string name="settings_battery_restricted">С ограничениями</string>
+    <string name="settings_battery_summary">Режим Doze может прерывать поток на несколько секунд</string>
+    <string name="settings_logs">Журналы</string>
+    <string name="settings_logs_summary">Просмотр и отправка недавних журналов приложения</string>
+    <string name="settings_saved_receivers">Сохранённые приёмники</string>
+    <string name="saved_receivers_empty">Нет сохранённых приёмников</string>
+    <string name="saved_receivers_unknown">Неизвестный приёмник</string>
+    <string name="saved_receivers_forget_title">Забыть %1$s?</string>
+    <string name="saved_receivers_forget_body">В следующий раз потребуется сопряжение заново.</string>
+    <string name="settings_section_about">О приложении</string>
+    <string name="settings_about_version">Версия</string>
+    <string name="settings_about_github">GitHub</string>
+    <string name="settings_licenses">Лицензии с открытым исходным кодом</string>
+    <string name="licenses_note">Kite распространяется под лицензией GNU LGPL-3.0 и основан на этих проектах с открытым исходным кодом:</string>
+
+    <!-- AirPlay 1 (audio-only) and password protection -->
+    <string name="receiver_audio_only">Только аудио</string>
+    <string name="state_password_required">Требуется пароль</string>
+    <string name="state_streaming_audio">Трансляция аудио</string>
+    <string name="password_title">Пароль AirPlay</string>
+    <string name="password_body">Введите пароль AirPlay для %1$s.</string>
+    <string name="password_hint">Пароль</string>
+    <string name="tile_label">AirPlay</string>
+    <string name="tile_subtitle_idle">Нажмите, чтобы выбрать устройство</string>
+    <string name="tile_pick_connecting">Подключение к %1$s</string>
+    <string name="error_projection_grant_invalid">Разрешение на запись экрана недействительно; выдайте его снова</string>
+    <string name="error_audio_interrupted">Трансляция звука прервана</string>
+    <string name="error_audio_permission_needed">Для захвата системного звука нужно разрешение на микрофон</string>
+    <string name="error_cast_interrupted">Трансляция прервана</string>
+    <string name="error_receiver_disconnected">Приёмник завершил сеанс</string>
+    <string name="error_password_required">Пароль отклонён</string>
+    <string name="error_mdns_failed">Не удалось запустить обнаружение mDNS</string>
+    <string name="error_pairing_throttled">После неудачных попыток приёмник ограничивает сопряжение. Выключите и снова включите на нём приём AirPlay (или подождите около 30 минут) и повторите.</string>
+</resources>

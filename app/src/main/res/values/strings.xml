@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Kite</string>
+
+    <string name="discovery_title">Cast to</string>
+    <string name="discovery_subtitle">AirPlay receivers on this Wi-Fi network</string>
+    <string name="discovery_searching">Searching for receivers</string>
+    <string name="discovery_empty_title">No devices found</string>
+    <string name="discovery_empty_body">Check that the Apple TV is switched on and joined to the same Wi-Fi network. AP isolation on some routers blocks mDNS.</string>
+
+    <string name="receiver_paired">Paired</string>
+    <string name="receiver_no_mirroring">Mirroring unsupported</string>
+    <string name="receiver_legacy_pairing">Legacy pairing only</string>
+
+    <string name="action_start">Start casting</string>
+    <string name="action_stop">Stop casting</string>
+    <string name="action_forget">Forget device</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_ok">OK</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_back">Back</string>
+
+    <string name="receiver_actions_title">What would you like to cast?</string>
+    <string name="receiver_action_mirror">Screen with sound</string>
+    <string name="receiver_action_video_only">Screen without sound</string>
+    <string name="receiver_action_audio_only">Sound only</string>
+
+    <string name="pin_title">Enter pairing code</string>
+    <string name="pin_body">A four-digit code appears on the screen of %1$s.</string>
+    <string name="pin_label">Pairing code</string>
+
+    <string name="quality_title">Resolution</string>
+    <string name="quality_native">Native</string>
+    <string name="quality_1080p" translatable="false">1080p</string>
+    <string name="quality_720p" translatable="false">720p</string>
+    <string name="quality_540p" translatable="false">540p</string>
+
+    <string name="state_connecting">Connecting</string>
+    <string name="state_pairing">Pairing</string>
+    <string name="state_setting_up">Setting up session</string>
+    <string name="state_mirroring">Casting</string>
+
+    <string name="mirroring_rate_kbps" translatable="false">%1$d kbps</string>
+    <string name="mirroring_rate_mbps" translatable="false">%1$.1f Mbps</string>
+    <string name="mirroring_resolution" translatable="false">%1$d × %2$d @ %3$d fps</string>
+
+    <string name="error_title">Casting failed</string>
+    <string name="error_repair_needed">The stored pairing is no longer valid. Enter the pairing code again.</string>
+
+    <string name="notification_channel_name">Casting status</string>
+    <string name="notification_channel_description">Ongoing notification while casting</string>
+    <string name="notification_title">Casting to %1$s</string>
+    <string name="notification_text">Tap to return to Kite</string>
+    <string name="notification_stop">Stop</string>
+
+    <string name="permission_notification_rationale">Notification permission is needed to show casting status.</string>
+    <string name="permission_nearby_rationale">Android 13 and later require the nearby devices permission to find devices on the local network.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_open">Settings</string>
+
+    <string name="settings_section_video">Video</string>
+
+    <string name="settings_frame_rate">Frame rate</string>
+
+    <string name="settings_bit_rate">Bit rate</string>
+    <string name="settings_bit_rate_auto">Auto</string>
+    <string name="settings_bit_rate_manual">Custom</string>
+    <string name="settings_bit_rate_value" translatable="false">%1$d Mbps</string>
+
+    <string name="settings_section_system">System</string>
+    <string name="settings_section_about">About</string>
+    <string name="settings_battery">Battery optimisation</string>
+    <string name="settings_battery_exempt">Exempt</string>
+    <string name="settings_battery_restricted">Restricted</string>
+    <string name="settings_battery_summary">Doze can stall the stream for seconds at a time</string>
+    <string name="settings_logs">Logs</string>
+    <string name="settings_logs_summary">View or share recent app logs</string>
+    <string name="settings_saved_receivers">Saved receivers</string>
+    <string name="saved_receivers_empty">No saved receivers</string>
+    <string name="saved_receivers_unknown">Unknown receiver</string>
+    <string name="saved_receivers_forget_title">Forget %1$s?</string>
+    <string name="saved_receivers_forget_body">You will need to pair again the next time.</string>
+    <string name="settings_about_version">Version</string>
+    <string name="settings_about_github">GitHub</string>
+    <string name="settings_licenses">Open source licenses</string>
+    <string name="licenses_note">Kite is released under the GNU LGPL-3.0. It is built on these open-source projects:</string>
+
+    <!-- AirPlay 1 (audio-only) and password protection -->
+    <string name="receiver_audio_only">Audio only</string>
+    <string name="state_password_required">Password required</string>
+    <string name="state_streaming_audio">Casting audio</string>
+    <string name="password_title">AirPlay password</string>
+    <string name="password_body">Enter the AirPlay password for %1$s.</string>
+    <string name="password_hint">Password</string>
+    <string name="tile_label">AirPlay</string>
+    <string name="tile_subtitle_idle">Tap to pick a device</string>
+    <string name="tile_pick_connecting">Connecting to %1$s</string>
+    <string name="error_projection_grant_invalid">Screen recording permission is invalid; please grant it again</string>
+    <string name="error_audio_interrupted">Audio casting was interrupted</string>
+    <string name="error_audio_permission_needed">Microphone permission is needed to capture system sound</string>
+    <string name="error_cast_interrupted">Casting was interrupted</string>
+    <string name="error_receiver_disconnected">The receiver ended the session</string>
+    <string name="error_password_required">Password was rejected</string>
+    <string name="error_mdns_failed">mDNS discovery failed to start</string>
+    <string name="error_pairing_throttled">The receiver is throttling pairing attempts after failures. Toggle its AirPlay receiver off and on (or wait about 30 minutes), then try again.</string>
+</resources>

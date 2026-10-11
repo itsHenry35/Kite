@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Numeric labels (1080p, kbps, fps) fall back to values/ untranslated. -->
+<resources>
+    <string name="discovery_title">전송 대상</string>
+    <string name="discovery_subtitle">같은 Wi-Fi의 AirPlay 수신기</string>
+    <string name="discovery_searching">수신기 검색 중</string>
+    <string name="discovery_empty_title">기기를 찾을 수 없음</string>
+    <string name="discovery_empty_body">Apple TV가 켜져 있고 같은 Wi-Fi 네트워크에 연결되어 있는지 확인하세요. 일부 공유기의 AP 격리 기능은 mDNS를 차단합니다.</string>
+
+    <string name="receiver_paired">페어링됨</string>
+    <string name="receiver_no_mirroring">미러링 미지원</string>
+    <string name="receiver_legacy_pairing">이전 방식 페어링만 지원</string>
+
+    <string name="action_start">전송 시작</string>
+    <string name="action_stop">전송 중지</string>
+    <string name="action_forget">페어링 해제</string>
+    <string name="action_cancel">취소</string>
+    <string name="action_confirm">확인</string>
+    <string name="action_ok">확인</string>
+    <string name="action_retry">다시 시도</string>
+    <string name="action_back">뒤로</string>
+
+    <string name="receiver_actions_title">무엇을 전송할까요?</string>
+    <string name="receiver_action_mirror">화면 및 소리</string>
+    <string name="receiver_action_video_only">화면만(소리 없음)</string>
+    <string name="receiver_action_audio_only">소리만</string>
+
+    <string name="pin_title">페어링 코드 입력</string>
+    <string name="pin_body">%1$s 화면에 네 자리 코드가 표시됩니다.</string>
+    <string name="pin_label">페어링 코드</string>
+
+    <string name="quality_title">해상도</string>
+    <string name="quality_native">원본</string>
+
+    <string name="state_connecting">연결 중</string>
+    <string name="state_pairing">페어링 중</string>
+    <string name="state_setting_up">세션 설정 중</string>
+    <string name="state_mirroring">전송 중</string>
+
+    <string name="error_title">전송 실패</string>
+    <string name="error_repair_needed">저장된 페어링 정보가 만료되었습니다. 페어링 코드를 다시 입력하세요.</string>
+
+    <string name="notification_channel_name">전송 상태</string>
+    <string name="notification_channel_description">전송 중 표시되는 고정 알림</string>
+    <string name="notification_title">%1$s(으)로 전송 중</string>
+    <string name="notification_text">탭하여 Kite로 돌아가기</string>
+    <string name="notification_stop">중지</string>
+
+    <string name="permission_notification_rationale">전송 상태를 표시하려면 알림 권한이 필요합니다.</string>
+    <string name="permission_nearby_rationale">Android 13 이상에서는 로컬 네트워크의 기기를 찾기 위해 근처 기기 권한이 필요합니다.</string>
+
+    <string name="settings_title">설정</string>
+    <string name="settings_open">설정</string>
+    <string name="settings_section_video">비디오</string>
+    <string name="settings_frame_rate">프레임 속도</string>
+    <string name="settings_bit_rate">비트레이트</string>
+    <string name="settings_bit_rate_auto">자동</string>
+    <string name="settings_bit_rate_manual">사용자 지정</string>
+    <string name="settings_section_system">시스템</string>
+    <string name="settings_battery">배터리 최적화</string>
+    <string name="settings_battery_exempt">제외됨</string>
+    <string name="settings_battery_restricted">제한됨</string>
+    <string name="settings_battery_summary">절전 모드로 인해 화면이 몇 초간 멈출 수 있습니다</string>
+    <string name="settings_logs">로그</string>
+    <string name="settings_logs_summary">최근 앱 로그를 보거나 공유합니다</string>
+    <string name="settings_saved_receivers">저장된 수신기</string>
+    <string name="saved_receivers_empty">저장된 수신기가 없습니다</string>
+    <string name="saved_receivers_unknown">알 수 없는 수신기</string>
+    <string name="saved_receivers_forget_title">%1$s을(를) 지울까요?</string>
+    <string name="saved_receivers_forget_body">다음 연결 시 다시 페어링해야 합니다.</string>
+    <string name="settings_section_about">정보</string>
+    <string name="settings_about_version">버전</string>
+    <string name="settings_about_github">GitHub</string>
+    <string name="settings_licenses">오픈 소스 라이선스</string>
+    <string name="licenses_note">Kite는 GNU LGPL-3.0으로 배포되며 다음 오픈 소스 프로젝트를 기반으로 합니다:</string>
+
+    <!-- AirPlay 1 (audio-only) and password protection -->
+    <string name="receiver_audio_only">오디오 전용</string>
+    <string name="state_password_required">비밀번호 필요</string>
+    <string name="state_streaming_audio">오디오 전송 중</string>
+    <string name="password_title">AirPlay 비밀번호</string>
+    <string name="password_body">%1$s의 AirPlay 비밀번호를 입력하세요.</string>
+    <string name="password_hint">비밀번호</string>
+    <string name="tile_label">AirPlay</string>
+    <string name="tile_subtitle_idle">탭하여 기기 선택</string>
+    <string name="tile_pick_connecting">%1$s 연결 중</string>
+    <string name="error_projection_grant_invalid">화면 녹화 권한이 유효하지 않습니다. 다시 허용해 주세요</string>
+    <string name="error_audio_interrupted">오디오 전송이 중단되었습니다</string>
+    <string name="error_audio_permission_needed">시스템 사운드를 캡처하려면 마이크 권한이 필요합니다</string>
+    <string name="error_cast_interrupted">전송이 중단되었습니다</string>
+    <string name="error_receiver_disconnected">수신 기기에서 세션을 종료했습니다</string>
+    <string name="error_password_required">비밀번호가 거부되었습니다</string>
+    <string name="error_mdns_failed">mDNS 시작 실패</string>
+    <string name="error_pairing_throttled">반복 실패로 수신기가 페어링을 제한 중입니다. 수신기의 AirPlay 수신을 껐다 켜거나 약 30분 후에 다시 시도하세요.</string>
+</resources>
